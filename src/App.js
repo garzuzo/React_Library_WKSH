@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route } from  'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Libro from  './components/Libro/Libro'
-
+import Login from './components/Login/Login'
 class App extends Component {
   render() {
     var  owner="Leonardo";
@@ -14,7 +14,8 @@ class App extends Component {
       <Router>
         <div className="App">
             <NavBar />
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Login}/>
+            <Route exact path="/home" component={Home}/>
             <Route exact path="/libros"  render={(props) => (
                      <Libros {...props} owner={owner}/>
                   )} />

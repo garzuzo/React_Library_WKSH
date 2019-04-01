@@ -2,12 +2,12 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 var config = {
-    apiKey: "AIzaSyDK-znSL__6nFbWzNSIGTwtdk58pnQJriY",
-    authDomain: "libreria-b3987.firebaseapp.com",
-    databaseURL: "https://libreria-b3987.firebaseio.com",
-    projectId: "libreria-b3987",
-    storageBucket: "libreria-b3987.appspot.com",
-    messagingSenderId: "710050059759"
+  apiKey: "AIzaSyAjQzS7BtjLuEa_gcvopSpxoRZZ9DO0SAI",
+    authDomain: "libreria-fed37.firebaseapp.com",
+    databaseURL: "https://libreria-fed37.firebaseio.com",
+    projectId: "libreria-fed37",
+    storageBucket: "libreria-fed37.appspot.com",
+    messagingSenderId: "1053693616654"
   };
   firebase.initializeApp(config);
 
