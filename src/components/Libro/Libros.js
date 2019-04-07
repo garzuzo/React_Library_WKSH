@@ -27,7 +27,9 @@ class Libros extends Component {
     this.state.db.collection("libros").get().then((querySnapshot)=>
         querySnapshot.forEach(doc =>{
           console.log(doc.data());
-          this.setState( {libros: doc.data()});
+          let auxLibros = this.state.libros;
+          auxLibros.push(doc.data());
+          this.setState( {libros: auxLibros});
         })
     );
   }
