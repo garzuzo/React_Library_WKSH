@@ -6,7 +6,7 @@ class NavBar extends Component {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <span className="navbar-brand">Navbar</span>
+        <span className="navbar-brand">SJ Libraries Management</span>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
@@ -16,10 +16,19 @@ class NavBar extends Component {
                 <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
             </li> 
             <li className="nav-item">
-                <Link className="nav-link" to="/libros">Libros</Link>
+                <Link className="nav-link" to="">Ingresar Librerias</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/about">About</Link>
+                <Link className="nav-link" to="">Ingresar Libros</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/libros">Librerias</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="">Búsquedas</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/about">Info</Link>
             </li>
             </ul>
         </div>
