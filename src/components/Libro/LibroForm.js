@@ -5,7 +5,7 @@ class LibroForm extends Component {
   constructor (){
     super();
     this.state = {
-         id: '',  name: '', author: ''
+         id: '',  name: '', author: '', ISBN:'', genre:'', description:'', library:''
     };
     
   }
@@ -43,18 +43,39 @@ class LibroForm extends Component {
     });
   }
 
-  render() {
+  
+  render() { 
     return (
       <div className="LibroForm">
         <form onSubmit={this.handleSubmit.bind(this)}>
             <input type="hidden" value={this.state.id} onChange={this.handleOnChange.bind(this)} />
             <div className="form-group">
+                <label htmlFor="isbn">ISBN</label>
+                <input type="text" className="form-control" id="isbn" name="isbn" value={this.state.ISBN} />
+            </div>
+            <div className="form-group">
                 <label htmlFor="name">Nombre</label>
-                <input type="text" className="form-control" id="name" name="name" value={this.state.name} onChange={this.handleOnChange.bind(this)} />
+                <input type="text" className="form-control" id="name" name="name" value={this.state.name}  />
             </div>
             <div className="form-group">
                 <label htmlFor="author">Autor</label>
-                <input type="text" className="form-control" id="author" name="author" value={this.state.author} onChange={this.handleOnChange.bind(this)} />
+                <input type="text" className="form-control" id="author" name="author" value={this.state.author} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="genre">Género</label>
+                <input type="text" className="form-control" id="genre" name="genre" value={this.state.genre} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="description">Descripción</label>
+                <input type="text" className="form-control" id="description" name="description" value={this.state.description} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="library">Libreria</label>
+                <select class="form-control" id="description"  name="library" value={this.state.library}>
+                    <option>Libreria de Leonardo</option>
+                    <option>Libreria de Sami</option>
+                    <option>Libreria de Johna</option>
+                </select> 
             </div>
             <button type="submit" className="btn btn-primary">Crear</button>
         </form>
