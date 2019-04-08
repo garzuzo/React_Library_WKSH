@@ -34,7 +34,7 @@ class Libros extends Component {
     );
   }
 
-  agregarLibro(libro){
+  createBook(libro){
 
       let  libros = this.state.libros;
 
@@ -69,7 +69,7 @@ class Libros extends Component {
       <div className="Libros container mt-5">
          <h1> Librería de {this.props.owner}</h1>
          <LibroList  libros={this.state.libros} handleEditarLibro={this.editarLibro.bind(this)}/>
-         <LibroForm handleNuevoLibro={this.agregarLibro.bind(this)}  libroEdit={this.state.libroEdit} />
+         <LibroForm handleNuevoLibro={this.createBook.bind(this)}  libroEdit={this.state.libroEdit} />
       </div>
     );
   }
