@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LibreriaItem from './LibreriaItem';
+import LibroList from '../Libro/LibroList';
 
 class LibreriaActual extends Component {
 
@@ -11,7 +12,8 @@ class LibreriaActual extends Component {
   //  (<LibreriaItem key={libroTmp.id} libro={libroTmp} handleEdit={this.handleEditLibro.bind(this)} />)
     //);
 //{libreriaActual} poner en el tbody
-let libreriaActual;
+var libreriaActual=this.props.libreria;
+
     return (
         <div className="Libreria">
 <h1>libreria actual</h1>
@@ -27,7 +29,13 @@ let libreriaActual;
                 </tr>
             </thead>
             <tbody>
-                
+            <tr>
+        <th scope="row">{libreria.id}</th>
+        <td>{libreriaActual.name}</td>
+        <td>{libreriaActual.address}</td>
+        <td>{libreriaActual.parent}</td>
+        <td>{libreriaActual.email}</td>
+      </tr>   
               
             </tbody>
         </table>

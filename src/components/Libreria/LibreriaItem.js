@@ -28,28 +28,6 @@ var libreria=this.props.libreria;
 
 
 
-<div className="form-group">
-                        <label htmlFor="nombreLibreria">Nombre</label>
-                        <input type="text" className="form-control" id="nombreLibreria"  placeholder="Ingresa el nombre" />
-                        
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="direccionLibreria">Dirección</label>
-                        <input type="text" className="form-control" id="direccionLibreria" placeholder="Ingresa la dirección" />
-                        
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="responsableLibreria">Responsable</label>
-                        <input type="text" className="form-control" id="responsableLibreria" placeholder="Ingresa el responsable" />
-                        
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="emailLibreria">Email</label>
-                        <input type="email" className="form-control" id="emailLibreria" aria-describedby="emailHelp" placeholder="Enter email" />
-                        
-                    </div>
-                    
-
         </div>
     );
   }

@@ -7,9 +7,9 @@ class LibreriaList extends Component {
     render() {
 
         //revisar
-     //   let libreriaList = this.props.libros.map((libroTmp) =>
-       //     (<LibreriaActual key={libroTmp.id} libro={libroTmp} handleEdit={this.handleEditLibro.bind(this)} />)
-      //  );
+        let libreriaList = this.props.librerias.map((libreriaTmp) =>
+         (<LibreriaActual key={libreriaTmp.name} libreria={libreriaTmp}  />)
+        );
 //  {libreriaList} poner abajo del h1
         let libreriaActual;
         return (
@@ -17,7 +17,7 @@ class LibreriaList extends Component {
 
 <h1>Lista de librerias</h1>
 <hr></hr>
-<LibreriaActual></LibreriaActual>
+{libreriaList}
 
 
 
