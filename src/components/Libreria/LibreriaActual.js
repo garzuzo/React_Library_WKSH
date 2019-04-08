@@ -7,14 +7,15 @@ class LibreriaActual extends Component {
   render() {
     
     //revisar
-    let  libreriaList = this.props.libros.map( (libroTmp)=>
-    (<LibreriaItem key={libroTmp.id} libro={libroTmp} handleEdit={this.handleEditLibro.bind(this)} />)
-);
-
+ //   let  libreriaList = this.props.libros.map( (libroTmp)=>
+  //  (<LibreriaItem key={libroTmp.id} libro={libroTmp} handleEdit={this.handleEditLibro.bind(this)} />)
+    //);
+//{libreriaActual} poner en el tbody
 let libreriaActual;
     return (
         <div className="Libreria">
-
+<h1>libreria actual</h1>
+<hr></hr>
 <table className="table">
             <thead>
                 <tr>
@@ -26,7 +27,7 @@ let libreriaActual;
                 </tr>
             </thead>
             <tbody>
-                {libreriaActual}
+                
               
             </tbody>
         </table>
