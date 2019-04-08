@@ -21,6 +21,7 @@ this.state={
     componentDidMount(){
         this.state.db.collection("librerias").get().then((querySnapshot)=>
             querySnapshot.forEach(doc =>{
+                console.log("Este es un didmount ");
               console.log(doc.data());
               let auxLibrerias = this.state.librerias;
               auxLibrerias.push(doc.data());
