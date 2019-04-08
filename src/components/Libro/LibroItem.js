@@ -12,11 +12,11 @@ class LibroItem extends Component {
 
     return (
       <tr>
-        <th scope="row">{libro.id}</th>
-        <td>{libro.name}</td>
+        <th scope="row">{libro.name}</th>
         <td>{libro.author}</td>
         <td>{libro.genre}</td>
         <td>{libro.description}</td>
+        <td>{libro.isbn}</td>
         <td>{libro.library}</td>
         <td>
         <button className="btn  btn-success" onClick={this.clickLibro.bind(this)}>Editar</button>

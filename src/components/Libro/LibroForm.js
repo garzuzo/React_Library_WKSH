@@ -5,7 +5,7 @@ class LibroForm extends Component {
   constructor (){
     super();
     this.state = {
-         id: '',  name: '', author: '', isbn:'', genre:'', description:'', library:'',
+           name: '', author: '', isbn:'', genre:'', description:'', library:'',
          libros:[], db: firebase.firestore()
     };
   }
@@ -37,7 +37,6 @@ class LibroForm extends Component {
       //     author: this.refs.author.value
       // };
       let libro = {
-        id: this.state.id,
         name: this.state.name,
         author: this.state.author,
         genre: this.state.genre,
@@ -55,18 +54,29 @@ class LibroForm extends Component {
 
     let  libros = this.state.libros;
 
-    if(libro.id!==""){
+    var libroExists;
+        for(var i=0;i<libros.length;i++){
+
+            var lAct=libros[i];
+            if(lAct.isbn===this.stateisbn){
+            libroExists=true;
+            }
+        }
+    if(libroExists){
       console.log("Este libro ya existe");
     }
     else{
       console.log("PRUEBAAAAAAAAAAAAAAA");
-      let  id  = Math.floor(Math.random()*100000)+1 + "";
-      libro.id = id;
       libros.push(libro);
+      this.state.db.collection("libros").doc(libro.isbn).set({
+       name: libro.name, author: libro.author, isbn: libro.isbn, genre: libro.genre, description: libro.library, library:libro.library
+      });
     }
     this.setState({
-      libros: libros
+      libros: libros,
+      name: '', author: '', isbn:'', genre:'', description:'', library:''
     });
+
     //console.log(libros);
 
 }
@@ -84,7 +94,7 @@ class LibroForm extends Component {
       <div className="LibroForm container mt-5">
         <h1>Agrega un nuevo libro</h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
-            <input type="hidden" value={this.state.id} onChange={this.handleOnChange.bind(this)} />
+            <input type="hidden" value={this.state.isbn} onChange={this.handleOnChange.bind(this)} />
             <div className="form-group">
                 <label htmlFor="isbn">ISBN</label>
                 <input type="text" className="form-control" id="isbn" name="isbn" onChange={this.handleOnChange.bind(this)} value={this.state.isbn} />

@@ -9,6 +9,7 @@ import Login from './components/Login/Login'
 import LibroForm from './components/Libro/LibroForm'
 import LibreriaForm from './components/Libreria/LibreriaForm'
 import Librerias from './components/Libreria/Librerias'
+import Busquedas from './components/Busqueda/Busquedas'
 class App extends Component {
   render() {
     var  owner="Leonardo";
@@ -29,7 +30,7 @@ class App extends Component {
             <Route path="/about" component={About}/>
             <Route path="/libros/:id" component={Libro}/>
             <Route path="/ingresarLibros" component={LibroForm}/>    
-
+            <Route path="/busquedas" component={Busquedas}/>  
         </div>
       </Router>
     );

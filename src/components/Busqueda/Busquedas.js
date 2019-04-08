@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import firebase from '../../config/Firebase';
-
-import LibroList from  './LibroList';
-import LibroForm from './LibroForm';
+import BusquedaLibreria from './BusquedaLibreria';
+import BusquedaLibro from './BusquedaLibro';
 
 class Busquedas extends Component {
 
@@ -17,10 +16,10 @@ class Busquedas extends Component {
   render() {
     return (
 
-      <div className="Libros container mt-5">
-         <h1> Librería de {this.props.owner}</h1>
-         <LibroList  libros={this.state.libros} handleEditarLibro={this.editarLibro.bind(this)}/>
-         <LibroForm handleNuevoLibro={this.createBook.bind(this)}  libroEdit={this.state.libroEdit} />
+      <div className="Busquedas container mt-5">
+         <h1> Búsquedas para la administración de librerias</h1>
+         <BusquedaLibreria/>
+         <BusquedaLibro/>
       </div>
     );
   }
