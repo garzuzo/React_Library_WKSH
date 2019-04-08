@@ -21,7 +21,7 @@ var libreriaActual=this.props.libreria;
 <table className="table">
             <thead>
                 <tr>
-                <th scope="col">Id</th>
+               
                 <th scope="col">Nombre</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Responsable</th>
@@ -30,8 +30,7 @@ var libreriaActual=this.props.libreria;
             </thead>
             <tbody>
             <tr>
-        <th scope="row">{libreria.id}</th>
-        <td>{libreriaActual.name}</td>
+        <th scope="row">{libreriaActual.name}</th>
         <td>{libreriaActual.address}</td>
         <td>{libreriaActual.parent}</td>
         <td>{libreriaActual.email}</td>

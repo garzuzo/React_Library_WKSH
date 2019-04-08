@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import firebase from '../../config/Firebase';
-import Libros from '../Libro/Libros';
 class LibreriaForm extends Component {
 
     constructor(){
+        super();
+        this.state = {
 
-        this.state={
-
-            id:'',name:'', email:'',address:'',parent:'',
-            librerias=[],
-
-            db: firebase.firestore()
+            name:'', email:'', address:'', parent:'',
+            librerias:[], db: firebase.firestore()
+          
         };
-
 
     }
 
@@ -25,8 +22,8 @@ class LibreriaForm extends Component {
                 console.log("Esta libreria ya existe");
             }else{
 
-                libreria.id=libreria.name;
-                libros.push(libro);
+                //libreria.id=libreria.name;
+                librerias.push(libreria);
 
             }
             this.setState({
@@ -67,29 +64,30 @@ class LibreriaForm extends Component {
   render() {
 
     return (
-        <div className="Libreria">
+        <div className="LibreriaForm">
 
 <h1>Ingresa una nueva libreria</h1>
         
-<form className="">
+<form  onSubmit={this.handleSubmit.bind(this)}>
                     <div className="form-group">
                         <label htmlFor="nombreLibreria">Nombre</label>
-                        <input type="text" className="form-control" id="nombreLibreria" value={this.state.name} onChange={this.handleOnChange.bind(this)} placeholder="Ingresa el nombre" />
+                        <input type="text" className="form-control" id="name" name="name" onChange={this.handleOnChange.bind(this)}   value={this.state.name}  placeholder="Ingresa el nombre" />
                         
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="direccionLibreria">Dirección</label>
-                        <input type="text" className="form-control" id="direccionLibreria" value={this.state.address}  onChange={this.handleOnChange.bind(this)} placeholder="Ingresa la dirección" />
+                        <input type="text" className="form-control" id="direccionLibreria" name="address" value={this.state.address}  onChange={this.handleOnChange.bind(this)} placeholder="Ingresa la dirección" />
                         
                     </div>
                     <div className="form-group">
                         <label htmlFor="responsableLibreria">Responsable</label>
-                        <input type="text" className="form-control" id="responsableLibreria" value={this.state.parent} onChange={this.handleOnChange.bind(this)} placeholder="Ingresa el responsable" />
+                        <input type="text" className="form-control" id="responsableLibreria" name="parent" value={this.state.parent} onChange={this.handleOnChange.bind(this)} placeholder="Ingresa el responsable" />
                         
                     </div>
                     <div className="form-group">
                         <label htmlFor="emailLibreria">Email</label>
-                        <input type="email" className="form-control" id="emailLibreria" aria-describedby="emailHelp" onChange={this.handleOnChange.bind(this)}  value={this.state.email}  placeholder="Enter email" />
+                        <input type="email" className="form-control" id="emailLibreria" name="email" aria-describedby="emailHelp" onChange={this.handleOnChange.bind(this)}  value={this.state.email}  placeholder="Enter email" />
                         
                     </div>
                     
