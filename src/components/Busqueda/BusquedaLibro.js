@@ -10,7 +10,7 @@ class BusquedaLibro extends Component {
            // libreria:{name:'', address:'', parent:'', email:''},
            libros:[], 
             dbLibros:[],  db: firebase.firestore(),
-            name:'', option1:Boolean, option2:Boolean, option3:Boolean 
+            name:'', selectedRadio:'nombre' 
         }
     }
 
@@ -33,10 +33,12 @@ class BusquedaLibro extends Component {
         //     name: this.refs.name.value,
         //     author: this.refs.author.value
         // };        
-        let  libros = this.state.libros;
+        this.setState({libros:[]});
         
         //nombre
-        if(this.state.option1){
+        if(this.state.selectedRadio==='nombre'){
+            
+            let  libros = this.state.libros;
             for(var i=0;i<this.state.dbLibros.length;i++){
                 let act= this.state.dbLibros[i];
                 if(act.name===this.state.name){
@@ -48,16 +50,24 @@ class BusquedaLibro extends Component {
                         isbn: act.isbn,
                         library: act.library
                       }
-                      if(!this.state.libros.includes(act)){
+                      if(!libros.includes(act)){
                         libros.push(act);  
                       }
                     
                 }
             }
+            this.setState({
+                libros: libros
+            });
         }
 
         //autor
-        if(this.state.option2){
+        if(this.state.selectedRadio==='autor'){
+            //this.setState({libros:[]});
+            console.log("ENTRO A AUTOR");
+            console.log(this.state.libros);
+            console.log("IMPRIMIO VACIO");
+            let  libros = this.state.libros;
             for(var i=0;i<this.state.dbLibros.length;i++){
                 let act= this.state.dbLibros[i];
                 if(act.author===this.state.name){
@@ -69,15 +79,20 @@ class BusquedaLibro extends Component {
                         isbn: act.isbn,
                         library: act.library
                       }
-                      if(!this.state.libros.includes(act)){
+                      if(!libros.includes(act)){
                         libros.push(act);  
                       }  
                 }
-                }
+            }
+            this.setState({
+                libros: libros
+            });
         }
 
          //genero
-         if(this.state.option3){
+         if(this.state.selectedRadio==='genero'){
+           // this.setState({libros:[]});
+            let  libros = this.state.libros;
             for(var i=0;i<this.state.dbLibros.length;i++){
                 let act= this.state.dbLibros[i];
                 if(act.genre===this.state.name){
@@ -89,16 +104,16 @@ class BusquedaLibro extends Component {
                         isbn: act.isbn,
                         library: act.library
                       }
-                      if(!this.state.libros.includes(act)){
+                      if(!libros.includes(act)){
                         libros.push(act);  
                       }
                 }
-                }
+            }
+            this.setState({
+                libros: libros
+            });
         }
-
-        this.setState({
-            libros: libros
-        });
+       
        // this.props.handleNuevoLibro(libro);
   
     }
@@ -109,7 +124,13 @@ class BusquedaLibro extends Component {
          this.setState({
              [event.target.name]: event.target.value
          });
-       }
+    }
+
+    handleOnChangeRadio(event){
+        this.setState({
+            selectedRadio: event.target.value
+          });
+    }
 
   render() {
 
@@ -120,16 +141,16 @@ class BusquedaLibro extends Component {
               <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
               </form>
               <div className="form-check form-check-inline">
-                <input className="form-check-input" type="radio" id="radio1" value={this.state.option1} name="defaultRadio"/>
-                <label className="form-check-label" for="radio1">Nombre</label>
+                <input className="form-check-input" type="radio" id="radio1" value="nombre" name="defaultRadio" onChange={this.handleOnChangeRadio.bind(this)}/>
+                <label className="form-check-label" htmlFor="radio1">Nombre</label>
               </div>
               <div className="form-check form-check-inline">
-                <input className="form-check-input" type="radio" id="radio2" value={this.state.option2} name="defaultRadio" />
-                <label className="form-check-label" for="radio2">Autor</label>
+                <input className="form-check-input" type="radio" id="radio2" value="autor" name="defaultRadio" onChange={this.handleOnChangeRadio.bind(this)}/>
+                <label className="form-check-label" htmlFor="radio2">Autor</label>
               </div>
               <div className="form-check form-check-inline">
-                <input className="form-check-input" type="radio" id="radio3" value={this.state.option3} name="defaultRadio"/>
-                <label className="form-check-label" for="radio3">Genero</label>
+                <input className="form-check-input" type="radio" id="radio3" value="genero" name="defaultRadio"onChange={this.handleOnChangeRadio.bind(this)} />
+                <label className="form-check-label" htmlFor="radio3">Genero</label>
               </div>
              <LibroList libros={this.state.libros}/>
         </div>

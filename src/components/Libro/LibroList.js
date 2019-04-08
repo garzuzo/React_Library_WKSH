@@ -12,7 +12,7 @@ class LibroList extends Component {
     //console.log(this.props.libros);
 
     let  libroList = this.props.libros.map( (libroTmp)=>
-        (<LibroItem key={libroTmp.id} libro={libroTmp} />)
+        (<LibroItem key={libroTmp.isbn} libro={libroTmp} />)
     );
 
     return (
@@ -26,7 +26,6 @@ class LibroList extends Component {
                 <th scope="col">Descripción</th>
                 <th scope="col">ISBN</th>
                 <th scope="col">Libreria</th>
-                <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>

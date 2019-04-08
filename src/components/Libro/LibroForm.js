@@ -6,7 +6,7 @@ class LibroForm extends Component {
     super();
     this.state = {
            name: '', author: '', isbn:'', genre:'', description:'', library:'',
-         libros:[], db: firebase.firestore()
+         libros:[], db: firebase.firestore(), dbLibraries:[]
     };
   }
 
@@ -27,6 +27,15 @@ class LibroForm extends Component {
         this.setState( {libros: auxLibros});
       })
   );
+
+  this.state.db.collection("librerias").get().then((querySnapshot)=>
+  querySnapshot.forEach(doc =>{
+    console.log(doc.data());
+    let auxLibrerias = this.state.dbLibraries;
+    auxLibrerias.push(doc.data());
+    this.setState( {dbLibraries: auxLibrerias});
+  })
+);
 }
 
   handleSubmit(e){
@@ -90,6 +99,11 @@ class LibroForm extends Component {
   }
  
   render() { 
+    let options = [];
+    for(var i = 0;i<this.state.dbLibraries.length;i++) {
+      options.push(<option>{this.state.dbLibraries[i].name}</option>);
+    }
+
     return (
       <div className="LibroForm container mt-5">
         <h1>Agrega un nuevo libro</h1>
@@ -97,30 +111,28 @@ class LibroForm extends Component {
             <input type="hidden" value={this.state.isbn} onChange={this.handleOnChange.bind(this)} />
             <div className="form-group">
                 <label htmlFor="isbn">ISBN</label>
-                <input type="text" className="form-control" id="isbn" name="isbn" onChange={this.handleOnChange.bind(this)} value={this.state.isbn} />
+                <input type="text" className="form-control" id="isbn" name="isbn" placeholder="Ingresa el ISBN" onChange={this.handleOnChange.bind(this)} value={this.state.isbn} />
             </div>
             <div className="form-group">
                 <label htmlFor="name">Nombre</label>
-                <input type="text" className="form-control" id="name" name="name" onChange={this.handleOnChange.bind(this)} value={this.state.name}  />
+                <input type="text" className="form-control" id="name" name="name" placeholder="Ingresa el nombre del libro" onChange={this.handleOnChange.bind(this)} value={this.state.name}  />
             </div>
             <div className="form-group">
                 <label htmlFor="author">Autor</label>
-                <input type="text" className="form-control" id="author" name="author" onChange={this.handleOnChange.bind(this)} value={this.state.author} />
+                <input type="text" className="form-control" id="author" name="author" placeholder="Ingresa el autor" onChange={this.handleOnChange.bind(this)} value={this.state.author} />
             </div>
             <div className="form-group">
                 <label htmlFor="genre">Género</label>
-                <input type="text" className="form-control" id="genre" name="genre" onChange={this.handleOnChange.bind(this)} value={this.state.genre} />
+                <input type="text" className="form-control" id="genre" name="genre" placeholder="Ingresa el género del libro" onChange={this.handleOnChange.bind(this)} value={this.state.genre} />
             </div>
             <div className="form-group">
                 <label htmlFor="description">Descripción</label>
-                <input type="text" className="form-control" id="description" name="description" onChange={this.handleOnChange.bind(this)} value={this.state.description} />
+                <input type="text" className="form-control" id="description" name="description" placeholder="Ingresa una breve descripción" onChange={this.handleOnChange.bind(this)} value={this.state.description} />
             </div>
             <div className="form-group">
-                <label htmlFor="library">Libreria</label>
-                <select className="form-control" id="description"  name="library" onChange={this.handleOnChange.bind(this)}>
-                    <option>Libreria de Leonardo</option>
-                    <option>Libreria de Sami</option>
-                    <option>Libreria de Johna</option>
+                <label htmlFor="library">Librería</label>
+                <select className="form-control" id="description"  name="library"  onChange={this.handleOnChange.bind(this)}>
+                    {options}
                 </select> 
             </div>
             <button type="submit" className="btn btn-primary">Crear</button>

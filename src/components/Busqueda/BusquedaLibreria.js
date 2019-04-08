@@ -31,7 +31,7 @@ class BusquedaLibreria extends Component {
         //     name: this.refs.name.value,
         //     author: this.refs.author.value
         // };        
-       
+        this.setState({libreria:{name:'', address:'', parent:'',email:'' }});
         for(var i=0;i<this.state.dbLibraries.length;i++){
         let act= this.state.dbLibraries[i];
         if(act.name===this.state.name){
