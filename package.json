@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://leobusar.github.io/ICESI2019A-libreria/",
   "dependencies": {
-    "firebase": "^5.9.0",
+    "firebase": "^5.9.3",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
