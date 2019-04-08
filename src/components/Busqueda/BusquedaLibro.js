@@ -33,7 +33,7 @@ class BusquedaLibro extends Component {
         //     name: this.refs.name.value,
         //     author: this.refs.author.value
         // };        
-        this.setState({libros:[]});
+      this.state.libros=[];
         
         //nombre
         if(this.state.selectedRadio==='nombre'){

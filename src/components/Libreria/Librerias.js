@@ -36,7 +36,7 @@ this.state={
 
     
     return (
-        <div className="Libreria">
+        <div className="Libreria container mt-5">
 
 <h1>Librerias</h1>
 <hr></hr>

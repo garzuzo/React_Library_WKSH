@@ -30,7 +30,9 @@ class BusquedaLibreria extends Component {
         // let nuevoLibro =  {
         //     name: this.refs.name.value,
         //     author: this.refs.author.value
-        // };        
+        // };    
+        
+        this.state.libreria=[];
         this.setState({libreria:{name:'', address:'', parent:'',email:'' }});
         for(var i=0;i<this.state.dbLibraries.length;i++){
         let act= this.state.dbLibraries[i];
