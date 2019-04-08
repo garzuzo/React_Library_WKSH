@@ -23,6 +23,9 @@ class LibroList extends Component {
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Autor</th>
+                <th scope="col">Género</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Libreria</th>
                 <th scope="col">Acciones</th>
                 </tr>
             </thead>

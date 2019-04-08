@@ -8,7 +8,6 @@ class LibroForm extends Component {
          id: '',  name: '', author: '', isbn:'', genre:'', description:'', library:'',
          libros:[], db: firebase.firestore()
     };
-    
   }
 
  // componentWillReceiveProps(props){
@@ -60,6 +59,7 @@ class LibroForm extends Component {
       console.log("Este libro ya existe");
     }
     else{
+      console.log("PRUEBAAAAAAAAAAAAAAA");
       let  id  = Math.floor(Math.random()*100000)+1 + "";
       libro.id = id;
       libros.push(libro);
@@ -78,11 +78,11 @@ class LibroForm extends Component {
         [event.target.name]: event.target.value
     });
   }
-
  
   render() { 
     return (
       <div className="LibroForm container mt-5">
+        <h1>Agrega un nuevo libro</h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
             <input type="hidden" value={this.state.id} onChange={this.handleOnChange.bind(this)} />
             <div className="form-group">
