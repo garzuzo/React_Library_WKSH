@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import firebase from '../../config/Firebase';
 import BusquedaLibreria from './BusquedaLibreria';
 import BusquedaLibro from './BusquedaLibro';
 

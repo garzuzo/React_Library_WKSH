@@ -29,10 +29,12 @@ class BusquedaLibro extends Component {
     handleSubmit(e){
         e.preventDefault();
         console.log(this.state.name);
-         
-       
-        this.setState({libros:[]});
-        let  libros = this.state.libros;
+        // let nuevoLibro =  {
+        //     name: this.refs.name.value,
+        //     author: this.refs.author.value
+        // };        
+      this.state.libros=[];
+        
         //nombre
         if(this.state.selectedRadio==='nombre'){
             //this.state.libros=[];

@@ -15,8 +15,6 @@ class LibreriaList extends Component {
         return (
             <div className="Libreria">
 
-<h1>Lista de librerias</h1>
-<hr></hr>
 {libreriaList}
 
 

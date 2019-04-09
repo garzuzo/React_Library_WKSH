@@ -18,6 +18,7 @@ class LibreriaActual extends Component {
 
 
     componentDidMount(){
+        
         this.state.db.collection("libros").get().then((querySnapshot)=>
             querySnapshot.forEach(doc =>{
               console.log(doc.data());
@@ -26,16 +27,11 @@ class LibreriaActual extends Component {
               this.setState( {libros: auxLibros});
             })
         );
-        this.state.booksLibrary=[];
       }
 
   render() {
-    
-    //revisar
- //   let  libreriaList = this.props.libros.map( (libroTmp)=>
-  //  (<LibreriaItem key={libroTmp.id} libro={libroTmp} handleEdit={this.handleEditLibro.bind(this)} />)
-    //);
-//{libreriaActual} poner en el tbody
+    this.state.booksLibrary=[];
+   
 var libreriaActual=this.props.libreria;
 let books=this.state.libros;
 
@@ -44,8 +40,11 @@ for(var i=0;i<books.length;i++){
     var bookAct=books[i];
 
     if(bookAct.library===libreriaActual.name){
-        if(!this.state.booksLibrary.includes(bookAct))
-        this.state.booksLibrary.push(bookAct);
+        if(!this.state.booksLibrary.includes(bookAct)){
+
+            this.state.booksLibrary.push(bookAct);
+console.log("se agrega a:"+bookAct.name);
+        }
 
     }
 
@@ -53,7 +52,7 @@ for(var i=0;i<books.length;i++){
 }
     return (
         <div className="Libreria">
-<h1>libreria actual</h1>
+<h1>{libreriaActual.name}</h1>
 <hr></hr>
 <table className="table">
             <thead>
@@ -76,12 +75,12 @@ for(var i=0;i<books.length;i++){
             </tbody>
         </table>
 
-      <h1>Libros asociados</h1>
+      <h3>Libros asociados</h3>
 
 
 <LibroList libros={this.state.booksLibrary}></LibroList>
     
-      
+      <hr></hr>
         </div>
     );
   }

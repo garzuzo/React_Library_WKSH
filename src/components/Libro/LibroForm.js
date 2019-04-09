@@ -67,24 +67,29 @@ class LibroForm extends Component {
         for(var i=0;i<libros.length;i++){
 
             var lAct=libros[i];
-            if(lAct.isbn===this.stateisbn){
+            if(lAct.isbn===this.state.isbn){
             libroExists=true;
             }
         }
     if(libroExists){
       console.log("Este libro ya existe");
+    }else if(this.state.library===""){
+      console.log("Seleccione una libreria");
     }
     else{
-      console.log("PRUEBAAAAAAAAAAAAAAA");
+      console.log("Creado exitosamente");
       libros.push(libro);
       this.state.db.collection("libros").doc(libro.isbn).set({
-       name: libro.name, author: libro.author, isbn: libro.isbn, genre: libro.genre, description: libro.library, library:libro.library
+       name: libro.name, author: libro.author, isbn: libro.isbn, genre: libro.genre, description: libro.description, library: libro.library
       });
     }
+
+    if(!libroExists && this.state.library!=="" && this.state.library!=="Selecciona una libreria"){
     this.setState({
       libros: libros,
       name: '', author: '', isbn:'', genre:'', description:'', library:''
     });
+  }
 
     //console.log(libros);
 
@@ -100,7 +105,9 @@ class LibroForm extends Component {
  
   render() { 
     let options = [];
+    options.push(<option selected>Selecciona una libreria</option>);
     for(var i = 0;i<this.state.dbLibraries.length;i++) {
+
       options.push(<option>{this.state.dbLibraries[i].name}</option>);
     }
 
@@ -131,7 +138,7 @@ class LibroForm extends Component {
             </div>
             <div className="form-group">
                 <label htmlFor="library">Librería</label>
-                <select className="form-control" id="description"  name="library"  onChange={this.handleOnChange.bind(this)}>
+                <select className="form-control custom-select" id="library"  name="library"  value={this.state.library} onChange={this.handleOnChange.bind(this)}>
                     {options}
                 </select> 
             </div>

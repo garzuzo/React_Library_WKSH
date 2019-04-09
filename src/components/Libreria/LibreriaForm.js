@@ -7,7 +7,7 @@ class LibreriaForm extends Component {
         this.state = {
 
             name: '', email: '', address: '', parent: '',
-            librerias: [{ name: 'Pepe', email: 'pepi@library.com', address: 'Calle 15#21-1', parent: 'Don Pepe'}], db: firebase.firestore()
+            librerias: [{ name: 'Pepe', email: 'pepi@library.com', address: 'Calle 15#21-1', parent: 'Don Pepe' }], db: firebase.firestore()
 
         };
 
@@ -29,34 +29,37 @@ class LibreriaForm extends Component {
         let librerias = this.state.librerias;
 
         var libraryExists;
-        for(var i=0;i<librerias.length;i++){
+        for (var i = 0; i < librerias.length; i++) {
 
-            var lAct=librerias[i];
-            if(lAct.name===libreria.name){
-libraryExists=true;
+            var lAct = librerias[i];
+            if (lAct.name === libreria.name) {
+                libraryExists = true;
             }
         }
-        
+
         if (libraryExists) {
 
             console.log("Esta libreria ya existe");
         } else {
-
+            console.log("Libreria creada exitosamente");
             //libreria.id=libreria.name;
             librerias.push(libreria);
 
             this.state.db.collection("librerias").doc(libreria.name).set({
-                
-                 name: libreria.name, email: libreria.email, address: libreria.address, parent: libreria.parent
-            
-            
+
+                name: libreria.name, email: libreria.email, address: libreria.address, parent: libreria.parent
+
+
             });
         }
+        if(!libraryExists){
         this.setState({
 
-            librerias: librerias
-        });
+            librerias: librerias,
+            name:"",email:"",address:"",parent:""
 
+        });
+    }
 
     }
     handleSubmit(e) {
