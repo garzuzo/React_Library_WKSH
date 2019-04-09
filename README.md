@@ -2,5 +2,9 @@
 Library Management Workshop. React+Firebase<br>
 https://garzuzo.github.io/React_Library_WKSH/
 # Development
-run <code>yarn install</code> <br>
-run <code> yarn start </code>
+<ul>
+    <li>clone this repository</li>
+  <li>run <code>yarn install</code> </li>
+ <li>run <code> yarn start </code> </li>
+  <li>go to localhost:3000 in your browser </li>
+</ul>
