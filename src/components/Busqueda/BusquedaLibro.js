@@ -37,8 +37,8 @@ class BusquedaLibro extends Component {
         
         //nombre
         if(this.state.selectedRadio==='nombre'){
-            //this.state.libros=[];
-            //let  libros = this.state.libros;
+            
+            let  libros = this.state.libros;
             for(var i=0;i<this.state.dbLibros.length;i++){
                 let act= this.state.dbLibros[i];
                 if(act.name===this.state.name){
@@ -56,9 +56,9 @@ class BusquedaLibro extends Component {
                     
                 }
             }
-            //this.setState({
-              //  libros: libros
-            //});
+            this.setState({
+                libros: libros
+            });
         }
 
         //autor
@@ -67,7 +67,7 @@ class BusquedaLibro extends Component {
             console.log("ENTRO A AUTOR");
             console.log(this.state.libros);
             console.log("IMPRIMIO VACIO");
-            //let  libros = this.state.libros;
+            let  libros = this.state.libros;
             for(var i=0;i<this.state.dbLibros.length;i++){
                 let act= this.state.dbLibros[i];
                 if(act.author===this.state.name){
@@ -84,9 +84,9 @@ class BusquedaLibro extends Component {
                       }  
                 }
             }
-            //this.setState({
-               // libros: libros
-            //});
+            this.setState({
+                libros: libros
+            });
         }
 
          //genero
@@ -109,15 +109,13 @@ class BusquedaLibro extends Component {
                       }
                 }
             }
-            //this.setState({
-              //  libros: libros
-            //});
+            this.setState({
+                libros: libros
+            });
         }
        
-        this.setState({
-            libros: libros
-        });
-       
+       // this.props.handleNuevoLibro(libro);
+  
     }
     
     handleOnChange (event){
