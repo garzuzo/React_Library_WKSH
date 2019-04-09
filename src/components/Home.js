@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Libros from './Libro/Libros';
 import NavBar from './NavBar';
 import {BrowserRouter as Router, Route } from  'react-router-dom';
+import { Redirect } from 'react-router-dom'
 import About from './About';
 import Libro from  './Libro/Libro'
 import Login from './Login/Login'
@@ -17,6 +18,7 @@ class Home extends Component {
   constructor(props){
     super(props);
   }
+
   logout(){
     firebase.auth().signOut().then(function() {
       // Sign-out successful.
@@ -32,6 +34,7 @@ class Home extends Component {
       <Router>
         <div className="Home">
          <NavBar />           
+            <Route exact path="/" component={Welcome}/>
             <Route exact path="/home" component={Welcome}/>
             <Route exact path="/librerias" component={Librerias}/>
             <Route exact path="/librerias1"  render={(props) => (

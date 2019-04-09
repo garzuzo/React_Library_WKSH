@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase, { auth, provider } from '../../config/Firebase';
 import { Link } from 'react-router-dom'; 
-
+import Alert from 'react-bootstrap/Alert';
 class Login extends Component {
 
     constructor(props) {
@@ -9,7 +9,10 @@ class Login extends Component {
         this.state = {
 
             email: '',
-            password: ''
+            password: '',
+            show: false,
+            msg: "",
+            variante: ""
         };
 
     }
@@ -19,17 +22,12 @@ class Login extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-//console.log(this.state.username);
-
-//console.log(this.state.password);
-  //      if (this.state.email === "garzuzo" && this.state.password === "123") {
-
-    //            this.context.router.history.push(`/home`);
-
-      //          console.log("in");
-       // }
        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         }).catch((error) => {
+            this.setState({ show: true });
+            this.setState({ variante: "warning" });
+      
+            this.setState({ msg: error.message });
         console.log(error.message);
       });
 
@@ -40,7 +38,11 @@ class Login extends Component {
 
        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         }).then((u)=>{}).catch((error) => {
-        console.log(error);
+            this.setState({ show: true });
+            this.setState({ variante: "warning" });
+      
+            this.setState({ msg: error.message });
+        console.log(error.message);
       });
 
     }
@@ -54,12 +56,13 @@ class Login extends Component {
     }
 
     render() {
-
+        const handleHide = () => this.setState({ show: false });
 
 
         return (
             <div className="Login container mt-5">
-
+ <Alert show={this.state.show} dismissible="true" onClick={handleHide} variant={this.state.variante} onChange={this.handleOnChange.bind(this)}>{this.state.msg}</Alert>
+       
                 <form>
                     <div className="form-group">
                     

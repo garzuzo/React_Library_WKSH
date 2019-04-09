@@ -2,7 +2,7 @@
   "name": "libreria",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://leobusar.github.io/ICESI2019A-libreria/",
+  "homepage": "https://garzuzo.github.io/React_Library_WKSH/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "firebase": "^5.9.3",
