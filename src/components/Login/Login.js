@@ -58,7 +58,7 @@ class Login extends Component {
 
 
         return (
-            <div className="Login">
+            <div className="Login container mt-5">
 
                 <form>
                     <div className="form-group">
@@ -72,7 +72,7 @@ class Login extends Component {
                     <input type="password" className="form-control" id="password" name="password" placeholder="Ingresa la contraseña" onChange={this.handleOnChange.bind(this)} value={this.state.password} />
                     </div>
                     <button onClick={this.handleSubmit.bind(this)} type="submit" className="btn btn-primary">Ingresar</button>
-                    <button onClick={this.handleRegister.bind(this)} type="submit" className="btn btn-primary">Registrarse</button>
+                    <button onClick={this.handleRegister.bind(this)} type="submit" className="btn btn-primary ml-3">Registrarse</button>
                 </form>
             </div>
         );

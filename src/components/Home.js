@@ -44,6 +44,8 @@ class Home extends Component {
             <Route path="/libros/:id" component={Libro}/>
             <Route path="/ingresarLibros" component={LibroForm}/>    
             <Route path="/busquedas" component={Busquedas}/>
+            <br></br>
+            <br></br>
             <button className="btn btn-primary" onClick={this.logout.bind(this)}>Salir</button>
         </div>
         </Router>
