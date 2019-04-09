@@ -141,7 +141,7 @@ class BusquedaLibro extends Component {
               <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
               </form>
               <div className="form-check form-check-inline">
-                <input className="form-check-input" type="radio" id="radio1" value="nombre" name="defaultRadio" onChange={this.handleOnChangeRadio.bind(this)}/>
+                <input className="form-check-input" type="radio" id="radio1" value="nombre" name="defaultRadio" onChange={this.handleOnChangeRadio.bind(this)} checked/>
                 <label className="form-check-label" htmlFor="radio1">Nombre</label>
               </div>
               <div className="form-check form-check-inline">
